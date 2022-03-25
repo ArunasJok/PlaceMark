@@ -1,4 +1,5 @@
 import { v4 } from "uuid";
+import { placenameMemStore } from "./placename-mem-store.js";
 
 let categories = [];
 
@@ -14,7 +15,9 @@ export const categoryMemStore = {
   },
 
   async getCategoryById(id) {
-    return categories.find((category) => category._id === id);
+    const list = categories.find((category) => category._id === id);
+    list.placenames = await placenameMemStore.getPlacenamesByCategoryId(list._id);
+    return list;
   },
 
   async deleteCategoryById(id) {
