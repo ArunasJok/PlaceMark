@@ -1,4 +1,5 @@
 import { db } from "../models/db.js";
+import { PlacenameSpec } from "../models/joi-schemas.js";
 
 export const categoryController = {
   index: {
@@ -13,6 +14,13 @@ export const categoryController = {
   },
 
   addPlacename: {
+    validate: {
+      payload: PlacenameSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("category-view", { title: "Add placename error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const category = await db.categoryStore.getCategoryById(request.params.id);
       const newPlacename = {
