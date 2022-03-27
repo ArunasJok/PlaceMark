@@ -8,6 +8,10 @@ export const categoryMemStore = {
     return categories;
   },
 
+  async getUserCategories(userid) {
+    return categories.filter((category) => category.userid === userid);
+  },
+
   async addCategory(category) {
     category._id = v4();
     categories.push(category);
