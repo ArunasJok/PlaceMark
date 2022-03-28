@@ -26,4 +26,20 @@ export const testUsers = [
   },
 ];
 
+export const arunas = {
+  title: "Arunas Favourites"
+};
+
+export const testCategories = [
+  {
+    title: "Ireland"
+  },
+  {
+    title: "France"
+  },
+  {
+    title: "Italy"
+  }
+];
+
   

@@ -3,24 +3,22 @@ import { db } from "../src/models/db.js";
 import { maggie, testUsers } from "./fixtures.js";
 
 suite("User API tests", () => {
-  // Initialising database for tests, clearing it from data 
+// Type "json" in db.init as a parameter to do tests in JSON Store, leave it blank for MEM Store
   setup(async () => {
     db.init();
     await db.userStore.deleteAll();
-  });
-
-  // Testing the creation of user
-  test("create a user", async () => {
-    const newUser = await db.userStore.addUser(maggie);
-    assert.deepEqual(maggie, newUser)    
-  });
-
-  // Testing deletion of users
-  test("delete all users", async () => {
     for (let i = 0; i < testUsers.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
       await db.userStore.addUser(testUsers[i]);
     }
+  });
+
+  test("create a user", async () => {
+    const newUser = await db.userStore.addUser(maggie);
+    assert.equal(newUser, maggie);
+  });
+
+  test("delete all users", async () => {
     let returnedUsers = await db.userStore.getAllUsers();
     assert.equal(returnedUsers.length, 3);
     await db.userStore.deleteAll();
@@ -28,7 +26,6 @@ suite("User API tests", () => {
     assert.equal(returnedUsers.length, 0);
   });
 
-  // Creating a user and testing if it can be found by ID or email
   test("get a user - success", async () => {
     const user = await db.userStore.addUser(maggie);
     const returnedUser1 = await db.userStore.getUserById(user._id);
@@ -37,16 +34,23 @@ suite("User API tests", () => {
     assert.deepEqual(user, returnedUser2);
   });
 
-  // Trying to delete a user by its ID and show the deleted user
   test("delete One User - success", async () => {
-    for (let i = 0; i < testUsers.length; i += 1) {
-      // eslint-disable-next-line no-await-in-loop
-      testUsers[i] = await db.userStore.addUser(testUsers[i]);
-    }
     await db.userStore.deleteUserById(testUsers[0]._id);
     const returnedUsers = await db.userStore.getAllUsers();
     assert.equal(returnedUsers.length, testUsers.length - 1);
     const deletedUser = await db.userStore.getUserById(testUsers[0]._id);
     assert.isNull(deletedUser);
+  });
+
+  test("get a user - bad params", async () => {
+    assert.isNull(await db.userStore.getUserByEmail(""));
+    assert.isNull(await db.userStore.getUserById(""));
+    assert.isNull(await db.userStore.getUserById());
+  });
+
+  test("delete One User - fail", async () => {
+    await db.userStore.deleteUserById("bad-id");
+    const allUsers = await db.userStore.getAllUsers();
+    assert.equal(testUsers.length, allUsers.length);
   });
 });

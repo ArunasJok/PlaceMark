@@ -1,7 +1,7 @@
-// Database used for local testing
-// import { userMemStore } from "./mem/user-mem-store.js";
-// import { categoryMemStore } from "./mem/category-mem-store.js";
-// import { placenameMemStore } from "./mem/placename-mem-store.js";
+// Memory Store
+import { userMemStore } from "./mem/user-mem-store.js";
+import { categoryMemStore } from "./mem/category-mem-store.js";
+import { placenameMemStore } from "./mem/placename-mem-store.js";
 
 // JSON Store
 import { userJsonStore } from "./json/user-json-store.js";
@@ -14,12 +14,17 @@ export const db = {
   categoryStore: null,
   placenameStore: null,
 
-  init() {
-    // this.userStore = userMemStore;
-    this.userStore = userJsonStore;
-    // this.categoryStore = categoryMemStore;
-    this.categoryStore = categoryJsonStore;
-    // this.placenameStore = placenameMemStore;
-    this.placenameStore = placenameJsonStore;
+  init(storeType) {
+    switch (storeType) {
+      case "json":
+        this.userStore = userJsonStore;
+        this.categoryStore = categoryJsonStore;
+        this.placenameStore = placenameJsonStore;
+        break;
+      default:
+        this.userStore = userMemStore;
+        this.categoryStore = categoryMemStore;
+        this.placenameStore = placenameMemStore;
+    }
   },
 };

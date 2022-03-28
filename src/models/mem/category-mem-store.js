@@ -20,13 +20,16 @@ export const categoryMemStore = {
 
   async getCategoryById(id) {
     const list = categories.find((category) => category._id === id);
-    list.placenames = await placenameMemStore.getPlacenamesByCategoryId(list._id);
-    return list;
+    if (list) {
+      list.placenames = await placenameMemStore.getPlacenamesByCategoryId(list._id);
+      return list;
+    }
+    return null;
   },
 
   async deleteCategoryById(id) {
     const index = categories.findIndex((category) => category._id === id);
-    categories.splice(index, 1);
+    if (index !== -1) categories.splice(index, 1);
   },
 
   async deleteAllCategories() {
