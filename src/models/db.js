@@ -3,6 +3,7 @@
 // import { categoryMemStore } from "./mem/category-mem-store.js";
 // import { placenameMemStore } from "./mem/placename-mem-store.js";
 
+// JSON Store
 import { userJsonStore } from "./json/user-json-store.js";
 import { categoryJsonStore } from "./json/category-json-store.js";
 import { placenameJsonStore } from "./json/placename-json-store.js";
