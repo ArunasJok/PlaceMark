@@ -1,21 +1,22 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
 import { maggie, testUsers } from "./fixtures.js";
+import { assertSubset } from "./test-utils.js";
 
 suite("User API tests", () => {
-// Type "json" in db.init as a parameter to do tests in JSON Store, leave it blank for MEM Store
+// Type "json" in db.init as a parameter to do tests in JSON Store, "mongo" for Mongo or leave it blank for MEM Store
   setup(async () => {
-    db.init();
+    db.init("mongo");
     await db.userStore.deleteAll();
     for (let i = 0; i < testUsers.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await db.userStore.addUser(testUsers[i]);
+      testUsers[i] = await db.userStore.addUser(testUsers[i]);
     }
   });
 
   test("create a user", async () => {
     const newUser = await db.userStore.addUser(maggie);
-    assert.equal(newUser, maggie);
+    assertSubset(maggie, newUser);
   });
 
   test("delete all users", async () => {
