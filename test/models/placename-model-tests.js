@@ -1,7 +1,7 @@
 import { assert } from "chai";
-import { db } from "../src/models/db.js";
-import { testCategories, testPlacenames, ievute, arunas, mountain, testUsers } from "./fixtures.js";
-import { assertSubset } from "./test-utils.js";
+import { db } from "../../src/models/db.js";
+import { testCategories, testPlacenames, ievute, arunas, mountain, testUsers } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
 
 suite("Placename Model tests", () => {
 

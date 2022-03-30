@@ -26,6 +26,8 @@ export const testUsers = [
   },
 ];
 
+export const serviceUrl = "http://localhost:3000";
+
 export const arunas = {
   title: "Arunas Favourites"
 };
