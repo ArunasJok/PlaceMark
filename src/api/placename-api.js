@@ -1,5 +1,7 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
+import { IdSpec, PlacenameSpec, PlacenameSpecPlus, PlacenameArraySpec } from "../models/joi-schemas.js";
+import { validationError } from "./logger.js";
 
 export const placenameApi = {
   find: {
@@ -12,6 +14,10 @@ export const placenameApi = {
             return Boom.serverUnavailable("Database Error");
         }
     },
+    tags: ["api"],
+    response: { schema: PlacenameArraySpec, failAction: validationError },
+    description: "Get all placenameApi",
+    notes: "Returns all placenameApi",
   },
 
   findOne: {
@@ -20,13 +26,18 @@ export const placenameApi = {
         try {
             const placename = await db.placenameStore.getPlacenameById(request.params.id);
             if (!placename) {
-              return Boom.notFound("No track with this id");
+              return Boom.notFound("No Placename with this id");
             }
             return placename;
           } catch (err) {
-            return Boom.serverUnavailable("No track with this id");
+            return Boom.serverUnavailable("No Placename with this id");
         }
     },
+    tags: ["api"],
+    description: "Find a Placename",
+    notes: "Returns a Placename",
+    validate: { params: { id: IdSpec }, failAction: validationError },
+    response: { schema: PlacenameSpecPlus, failAction: validationError },
   },
 
   create: {
@@ -42,6 +53,11 @@ export const placenameApi = {
             return Boom.serverUnavailable("Database Error");
         }
     },
+    tags: ["api"],
+    description: "Create a placename",
+    notes: "Returns the newly created placename",
+    validate: { payload: PlacenameSpec },
+    response: { schema: PlacenameSpecPlus, failAction: validationError },
   },
 
   deleteAll: {
@@ -54,6 +70,8 @@ export const placenameApi = {
             return Boom.serverUnavailable("Database Error");
         }
     },
+    tags: ["api"],
+    description: "Delete all placenameApi",
   },
 
   deleteOne: {
@@ -70,5 +88,8 @@ export const placenameApi = {
             return Boom.serverUnavailable("No Placename with this id");
         }
     },
+    tags: ["api"],
+    description: "Delete a placename",
+    validate: { params: { id: IdSpec }, failAction: validationError },
   },
 };
