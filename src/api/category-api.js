@@ -39,7 +39,7 @@ export const categoryApi = {
     },
     tags: ["api"],
     description: "Find a Category",
-    notes: "Returns a category",
+    notes: "Returns a Category",
     validate: { params: { id: IdSpec }, failAction: validationError },
     response: { schema: CategorySpecPlus, failAction: validationError },
   },

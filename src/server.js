@@ -25,9 +25,17 @@ if (result.error) {
 
 const swaggerOptions = {
   info: {
-    title: "PlaceMark API",
-    version: "0.1",
+    title: "Playtime API",
+    version: "0.1"
   },
+  securityDefinitions: {
+    jwt: {
+      type: "apiKey",
+      name: "Authorization",
+      in: "header"
+    }
+  },
+  security: [{ jwt: [] }]
 };
 
 async function init() {
