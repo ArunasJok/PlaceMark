@@ -8,10 +8,14 @@ suite("Placename API tests", () => {
   let hikingList = null;
 
   setup(async () => {
-    await placemarkService.deleteAllCategories();
-    await placemarkService.deleteAllUsers();
-    await placemarkService.deleteAllPlacenames();
+    placemarkService.clearAuth();
     user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
+    await placemarkService.deleteAllCategories();
+    await placemarkService.deleteAllPlacenames();
+    await placemarkService.deleteAllUsers();    
+    user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
     arunas.userid = user._id;
     hikingList = await placemarkService.createCategory(arunas)
   });

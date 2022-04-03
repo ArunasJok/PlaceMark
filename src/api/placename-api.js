@@ -5,13 +5,15 @@ import { validationError } from "./logger.js";
 
 export const placenameApi = {
   find: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
         try {
-            const placenames = await db.placenameStore.getAllPlacenames();
-            return placenames;
-          } catch (err) {
-            return Boom.serverUnavailable("Database Error");
+          const placenames = await db.placenameStore.getAllPlacenames();
+          return placenames;
+        } catch (err) {
+          return Boom.serverUnavailable("Database Error");
         }
     },
     tags: ["api"],
@@ -21,7 +23,9 @@ export const placenameApi = {
   },
 
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
         try {
             const placename = await db.placenameStore.getPlacenameById(request.params.id);
@@ -41,7 +45,9 @@ export const placenameApi = {
   },
 
   create: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
         try {
             const placename = await db.placenameStore.addPlacename(request.params.id, request.payload);
@@ -61,7 +67,9 @@ export const placenameApi = {
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
         try {
             await db.placenameStore.deleteAllPlacenames();
@@ -75,17 +83,19 @@ export const placenameApi = {
   },
 
   deleteOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
         try {
-            const placename = await db.placenameStore.getPlacenameById(request.params.id);
-            if (!placename) {
-              return Boom.notFound("No Placename with this id");
-            }
-            await db.placenameStore.deletePlacename(placename._id);
-            return h.response().code(204);
-          } catch (err) {
-            return Boom.serverUnavailable("No Placename with this id");
+          const placename = await db.placenameStore.getPlacenameById(request.params.id);
+          if (!placename) {
+            return Boom.notFound("No Placename with this id");
+          }
+          await db.placenameStore.deletePlacename(placename._id);
+          return h.response().code(204);
+        } catch (err) {
+          return Boom.serverUnavailable("No Placename with this id");
         }
     },
     tags: ["api"],

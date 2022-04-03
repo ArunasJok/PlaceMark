@@ -19,4 +19,6 @@ export const apiRoutes = [
   { method: "POST", path: "/api/categories/{id}/placenames", config: placenameApi.create },
   { method: "DELETE", path: "/api/placenames", config: placenameApi.deleteAll },
   { method: "DELETE", path: "/api/placenames/{id}", config: placenameApi.deleteOne },
+
+  { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
 ];
