@@ -4,6 +4,9 @@
   "description": "PlaceMark: a Hapi/node application for managing points of interest",
   "main": "src/server.js",
   "type": "module",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "start": "node src/server.js",
     "lint": "eslint . --ext .js",
@@ -34,6 +37,7 @@
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "lowdb": "^3.0.0",
+    "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^6.2.9",
     "uuid": "^8.3.2"
   }
