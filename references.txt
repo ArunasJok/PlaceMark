@@ -1,0 +1,9 @@
+Pictures:
+https://www.lonelyplanet.com/articles/ireland-top-natural-wonders
+https://www.pexels.com/search/tourist/
+
+Formating:
+https://bulma.io/documentation/elements/image/
+https://bulma.io/documentation/elements/icon/
+
+Text:

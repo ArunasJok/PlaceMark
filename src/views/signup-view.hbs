@@ -1,6 +1,24 @@
 {{> welcome-menu active="signup"}}
 
+<div class="tile is-ancestor">
+  <div class="tile is-3 is-vertical is-parent">
+    <div class="tile is-child box">
+      <article class="tile is-child notification is-info">
+      <p class="title">Safety First!</p>
+      <p>Even if the service is <strong>free</strong> we still offer great data security and we comply to all GDPR laws . 
+       In order for you to get the full experience we kindly ask to sign-up. You will need only the details below:</p>
+      <ul>
+        <li>Full Name</li>
+        <li>Email</li>
+        <li>Smart password!</li>
+      </ul> 
+      </article>
+    </div>    
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
 <section class="section">
+  <article class="tile is-child notification is-info">
   <h1 class="title">Sign up</h1>
   <form action="/register" method="POST">
     <label class="label">Name</label>
@@ -24,4 +42,8 @@
       <button class="button is-link">Submit</button>
     </div>
   </form>
+  </article>
 </section>
+    </div>
+  </div>
+</div>
