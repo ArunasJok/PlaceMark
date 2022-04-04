@@ -15,7 +15,7 @@ node -v
 
 ## Running the tests
 
-You can run test either using local memmory or using Miongo Db. 
+You can run test either using local memory or using Miongo Db. 
 
 
 ## Contributing
