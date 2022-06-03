@@ -23,5 +23,7 @@ export const webRoutes = [
     { method: "POST", path: "/category/{id}/addplacename", config: categoryController.addPlacename },
     { method: "GET", path: "/category/{id}/deleteplacename/{placenameid}", config: categoryController.deletePlacename },
     
-    { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
+    { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
+
+    { method: "POST", path: "/category/{id}/uploadimage", config: categoryController.uploadImage }
   ];

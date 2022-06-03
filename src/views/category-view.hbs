@@ -1,9 +1,15 @@
 {{> menu}}
 
-<section class="section">
-  <div class="title">
-    {{category.title}}
+<section class="section columns is-vcentered">
+  <div class="colum has-text-centered">
+    <div class="title">
+      {{category.title}}
+    </div>
+    {{> list-placenames}}
+    {{> add-placename}}
   </div>
-  {{> list-placenames}}
-  {{> add-placename}}
+  <div class="column">
+    {{> list-placenames}}
+    {{> category-image }}
+  </div>
 </section>
