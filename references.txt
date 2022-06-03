@@ -5,5 +5,8 @@ https://www.pexels.com/search/tourist/
 Formating:
 https://bulma.io/documentation/elements/image/
 https://bulma.io/documentation/elements/icon/
-
+https://bulma.io/documentation/layout/hero/
+https://bulma.io/documentation/layout/tiles/
+https://bulma.io/documentation/helpers/color-helpers/
 Text:
+https://www.cabinzero.com/blogs/our-journey/benefits-of-traveling
