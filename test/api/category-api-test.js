@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { placemarkService } from "./placemark-service.js";
 import { assertSubset } from "../test-utils.js";
-import { maggieCredentials, maggie, arunas, testCategories } from "../fixtures.js";
+import { maggieCredentials, maggie, arunas, testCategories, testReviews } from "../fixtures.js";
 
 suite("Category API tests", () => {
 
@@ -58,5 +58,13 @@ suite("Category API tests", () => {
     } catch (error) {
       assert(error.response.data.message === "No Category with this id", "Incorrect Response Message");
     }
+  });
+
+  test("create a review", async () => {
+    const returnedCategory = await placemarkService.createCategory(testCategories[0]);
+    await placemarkService.leaveReview(returnedCategory._id, testReviews[0]);
+    const returnedReviews = await placemarkService.getReviews(returnedCategory._id);
+    assert.equal(returnedReviews.length, 1);
+    assertSubset(returnedReviews[0], testReviews[0]);
   });
 });

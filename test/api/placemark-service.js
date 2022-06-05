@@ -82,6 +82,16 @@ export const placemarkService = {
 
   async clearAuth() {
     axios.defaults.headers.common.Authorization = "";
-  }
+  },
+
+  async leaveReview(id, review) {
+    const response = await axios.post(`${this.placemarkUrl}/api/categories/${id}/reviews`, review);
+    return response.data;
+  },
+
+  async getReviews(id) {
+    const response = await axios.get(`${this.placemarkUrl}/api/categories/${id}/reviews`);
+    return response.data;
+  },
 
 };

@@ -3,8 +3,7 @@ import Mongoose from "mongoose";
 const { Schema } = Mongoose;
 
 const reviewSchema = new Schema({
-  amount: Number,
-  method: String,
+  stars: Number,  
   donor: {
     type: Schema.Types.ObjectId,
     ref: "User",

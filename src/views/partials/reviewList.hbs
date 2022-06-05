@@ -1,3 +1,16 @@
-<div class="box">
-  <p> List of Reviews here</p>
-</div>
+<table class="table is-fullwidth">
+  <thead>
+    <th>Stars</th>    
+    <th>User</th>
+    <th>Category</th>
+  </thead>
+  <tbody>
+    {{#each reviews}}
+      <tr>
+        <td>{{stars}}</td>        
+        <td> {{donor.firstName}} {{donor.lastName}} </td>
+        <td>{{category.title}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

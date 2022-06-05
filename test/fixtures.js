@@ -7,7 +7,7 @@ export const maggie = {
 
 export const maggieCredentials = {
   email: "maggie@simpson.com",
-  password: "Secret11"
+  password: "Secret10"
 };
 
 export const testUsers = [
@@ -28,7 +28,7 @@ export const testUsers = [
     lastName: "Simpson",
     email: "bart@simpson.com",
     password: "Secret14",
-  },
+  }
 ];
 
 export const serviceUrl = process.env.PORT || "http://localhost:3000";
@@ -51,6 +51,18 @@ export const testCategories = [
   {
     title: "Italy"
   }
+];
+
+export const testReviews = [
+  {
+    stars: 2,    
+  },
+  {
+    stars: 5,
+  },    
+  {
+    stars: 3,    
+  },
 ];
 
 export const mountain = {

@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placemarkService } from "./placemark-service.js";
-import { maggieCredentials, maggie, arunas, testCategories, testPlacenames, mountain } from "../fixtures.js";
+import { maggieCredentials, maggie, arunas, testCategories, testPlacenames, mountain, testReviews } from "../fixtures.js";
 
 suite("Placename API tests", () => {
   let user = null;
@@ -66,5 +66,5 @@ suite("Placename API tests", () => {
       for (let i = 0; i < testPlacenames.length; i += 1) {
         assertSubset(testPlacenames[i], returnedCategory.placenames[i]);
       }
-  });
+  });  
 });
