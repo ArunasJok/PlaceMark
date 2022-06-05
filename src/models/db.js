@@ -13,11 +13,13 @@ import { connectMongo } from "./mongo/connect.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { categoryMongoStore } from "./mongo/category-mongo-store.js";
 import { placenameMongoStore } from "./mongo/placename-mongo-store.js";
+import { reviewMongoStore } from "./mongo/review-mongo-store.js";
 
 export const db = {
   userStore: null,
   categoryStore: null,
   placenameStore: null,
+  reviewStore: null,
 
   init(storeType) {
     switch (storeType) {
@@ -30,6 +32,7 @@ export const db = {
         this.userStore = userMongoStore;
         this.categoryStore = categoryMongoStore;
         this.placenameStore = placenameMongoStore;
+        this.reviewStore = reviewMongoStore;
         connectMongo();
         break;
       default:

@@ -25,7 +25,29 @@ export const seedData = {
       arunas: {
         title: "Lakes",
         userid: "->users.pat"
+      },      
+      john: {
+        title: "Mountains",
+        userid: "->users.pat"
       }
+    },
+    reviews: {
+      _model: "Review",
+      one: {
+        stars: 4,        
+        donor: "->users.pat",
+        category: "->categories.arunas",
+      },
+      two: {
+        stars: 5,        
+        donor: "->users.john",
+        category: "->categories.arunas",
+      },
+      three: {
+        stars: 3,        
+        donor: "->users.pat",
+        category: "->categories.john",
+      },
     },
     placenames: {
       _model : "Placename",

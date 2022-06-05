@@ -2,12 +2,12 @@ export const maggie = {
   firstName: "Maggie",
   lastName: "Simpson",
   email: "maggie@simpson.com",
-  password: "secret",
+  password: "Secret10",
 };
 
 export const maggieCredentials = {
   email: "maggie@simpson.com",
-  password: "secret"
+  password: "Secret11"
 };
 
 export const testUsers = [
@@ -15,19 +15,19 @@ export const testUsers = [
     firstName: "Homer",
     lastName: "Simpson",
     email: "homer@simpson.com",
-    password: "secret",
+    password: "Secret12",
   },
   {
     firstName: "Marge",
     lastName: "Simpson",
     email: "marge@simpson.com",
-    password: "secret",
+    password: "Secret13",
   },
   {
     firstName: "Bart",
     lastName: "Simpson",
     email: "bart@simpson.com",
-    password: "secret",
+    password: "Secret14",
   },
 ];
 

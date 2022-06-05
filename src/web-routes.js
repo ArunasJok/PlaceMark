@@ -2,7 +2,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { categoryController } from "./controllers/category-controller.js";
-import {reviewsController} from "./controllers/reviews-controller.js";
+import { reviewsController } from "./controllers/reviews-controller.js";
 
 export const webRoutes = [
     { method: "GET", path: "/", config: accountsController.index },
