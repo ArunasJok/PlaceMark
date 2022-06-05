@@ -5,19 +5,19 @@ export const seedData = {
         firstName: "John",
         lastName: "Johnson",
         email: "j@j.com",
-        password: "secret"
+        password: "$2a$10$awGGBhjo/.U3hAwyyvzPruG1RIrP8i1N7BXWr3A1QrlacVayD9eIe"
       },
       pat: {
         firstName: "Pat",
         lastName: "Patrickson",
         email: "pat@p.com",
-        password: "secret"
+        password: "$2a$10$bHBXvd0G1RicCd.h8otgdu7yGjwHrQIb5DvwHrL2qan3fuT4ED8PK"
       },
       mary: {
         firstName: "Mary",
         lastName: "Marrion",
         email: "mary@m.com",
-        password: "secret"
+        password: "$2a$10$U20R6To/5b8HF6KK0VBbIOnF5mPpTjqG7zwnN0zaZjOEAmBhT5fmO"
       }
     },
     categories: {
