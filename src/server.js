@@ -17,6 +17,7 @@ import { validate } from "./api/jwt-utils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 const result = dotenv.config();
 if (result.error) {
   console.log(result.error.message);
@@ -42,6 +43,7 @@ async function init() {
   const server = Hapi.server({
     port: 3000,
     host: "localhost",
+    routes: { cors: true },
   });
   await server.register(Vision);
   await server.register(Cookie);
@@ -83,9 +85,12 @@ async function init() {
     layout: true,
     isCached: false,
   });
+
   db.init("mongo");
+
   server.route(webRoutes);
   server.route(apiRoutes);
+
   await server.start();
   console.log("Server running on %s", server.info.uri);
 }

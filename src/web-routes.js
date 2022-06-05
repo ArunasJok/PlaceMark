@@ -2,6 +2,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { categoryController } from "./controllers/category-controller.js";
+import {reviewsController} from "./controllers/reviews-controller.js";
 
 export const webRoutes = [
     { method: "GET", path: "/", config: accountsController.index },
@@ -26,6 +27,11 @@ export const webRoutes = [
     { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
 
     { method: "POST", path: "/category/{id}/uploadimage", config: categoryController.uploadImage },
-    { method: "POST", path: "/category/{id}/deleteimage", config: categoryController.deleteImage },    
+    { method: "POST", path: "/category/{id}/deleteimage", config: categoryController.deleteImage },  
+    
+    { method: "GET", path: "/review", config: reviewsController.index },
+    { method: "POST", path: "/review", config: reviewsController.review },
+    { method: "GET", path: "/report", config: reviewsController.report },
+    
     
   ];
