@@ -20,10 +20,15 @@ export const imageStore = {
   uploadImage: async function(imagefile) {
     await writeFileSync("./public/temp.img", imagefile);
     const response = await cloudinary.v2.uploader.upload("./public/temp.img");
+    console.log(response.url)
     return response.url;
   },
 
-  deleteImage: async function(img) {
-    await cloudinary.v2.uploader.destroy(img, {});
+  deleteImage: async function(imagefile) {  
+    try {
+        await cloudinary.v2.uploader.destroy(imagefile, {});;
+      } catch (error) {
+        console.log("bad id");
+      }    
   }
 };

@@ -5,13 +5,16 @@ export const IdSpec = Joi.alternatives().try(Joi.string(), Joi.object()).descrip
 export const UserCredentialsSpec = Joi.object()
   .keys({
     email: Joi.string().email().example("name@mail.com").required(),
-    password: Joi.string().example("secret").required(),
+    password: Joi.string().example("secret").required().min(8).regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/).messages({"string.pattern.base": "\"password\" should have at least one uppercase letter, one lowercase letter and one number.",}),        // min 8 characters
   })
   .label("UserCredentials");
 
 export const UserSpec = UserCredentialsSpec.keys({
-  firstName: Joi.string().example("Name").required(),
-  lastName: Joi.string().example("Surname").required(),
+  // begin with an upper case letter and then 2+ lower case letters
+  firstName: Joi.string().example("Name").required().regex(/^[A-Z][a-z]{2,}$/).messages({"string.pattern.base": "\"name\" should start with a capital letter",
+  "string.empty": "\"name\" cannot be an empty field",}),
+  lastName: Joi.string().example("Surname").required().regex(/^[A-Z][a-z]{2,}$/).messages({"string.pattern.base": "\"lastname\" should start with a capital letter",
+  "string.empty": "\"lastname\" cannot be an empty field",}),
 }).label("UserDetails");
 
 export const UserSpecPlus = UserSpec.keys({

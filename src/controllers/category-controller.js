@@ -63,6 +63,14 @@ export const categoryController = {
       output: "data",
       maxBytes: 209715200,
       parse: true
-    }
-  }
+    },
+  },
+  
+  deleteImage: {
+    handler: async function(request, h) {
+      const category = await db.categoryStore.getCategoryById(request.params.id);
+      await db.imageStore.deleteImage(request.params.imagefile);     
+      return h.redirect(`/category/${category._id}`);
+    },
+  },
 };
