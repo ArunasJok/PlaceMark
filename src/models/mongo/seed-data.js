@@ -25,17 +25,17 @@ export const seedData = {
     _model: "Category",
     pat: {
       title: "Lakes",
-      img: "https://res.cloudinary.com/df03pv51z/image/upload/v1654513477/eytl9b3cfgbwvmwnmm3b.jpg",
+      img: "https://res.cloudinary.com/df03pv51z/image/upload/v1654537240/lneytqjlstadi82jylr9.jpg",
       userid: "->users.pat"
     },      
     john: {
       title: "Mountains",
-      img: "https://res.cloudinary.com/df03pv51z/image/upload/v1654513477/eytl9b3cfgbwvmwnmm3b.jpg",
+      img: "https://res.cloudinary.com/df03pv51z/image/upload/v1654537218/ckrc2hq0hjno5jafmovf.jpg",
       userid: "->users.john"
     },
     mary: {
       title: "Rivers",
-      img: "https://res.cloudinary.com/df03pv51z/image/upload/v1654513477/eytl9b3cfgbwvmwnmm3b.jpg",
+      img: "https://res.cloudinary.com/df03pv51z/image/upload/v1654537229/rrdxudcownmwl4inugao.jpg",
       userid: "->users.mary"
     },
   },
