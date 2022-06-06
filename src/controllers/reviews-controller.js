@@ -21,7 +21,7 @@ export const reviewsController = {
       try {
         const loggedInUser = request.auth.credentials;
         const rawCategory = request.payload.category.split(",");
-        const category = await db.categoryStore.findByName(rawCategory[0], rawCategory[1]);
+        const category = await db.categoryStore.findByTitle(rawCategory[0]);
         await db.reviewStore.review(request.payload.stars, loggedInUser._id, category._id);
         return h.redirect("/report");
       } catch (err) {

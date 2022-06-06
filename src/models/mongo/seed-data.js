@@ -18,7 +18,7 @@ export const seedData = {
         lastName: "Marrion",
         email: "mary@m.com",
         password: "$2a$10$BwNKdghP.N9ik2k9n6cAbueQBWSLyJnF9789SkyQb5mxBG8Ra5Qte"
-      }
+      },
     },
 
     categories: {
@@ -34,7 +34,7 @@ export const seedData = {
       mary: {
         title: "Rivers",
         userid: "->users.mary"
-      }
+      },
     },
 
     reviews: {

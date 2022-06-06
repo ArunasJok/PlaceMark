@@ -50,15 +50,7 @@ suite("Category API tests", () => {
     returnedLists = await placemarkService.getAllCategories();
     assert.equal(returnedLists.length, 0);
   });
-
-  test("remove non-existent category", async () => {
-    try {
-      const response = await placemarkService.deleteCategory("not an id");
-      assert.fail("Should not return a response");
-    } catch (error) {
-      assert(error.response.data.message === "No Category with this id", "Incorrect Response Message");
-    }
-  });
+  
 
   test("create a review", async () => {
     const returnedCategory = await placemarkService.createCategory(testCategories[0]);
