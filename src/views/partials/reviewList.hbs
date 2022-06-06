@@ -1,16 +1,16 @@
 <table class="table is-fullwidth">
-  <thead class="title is-4">
+  <thead>
     <th>Stars</th>    
     <th>User</th>
     <th>Category</th>
   </thead>
-  <tbody class="title is-4">
+  <tbody>
     {{#each reviews}}
       <tr>
         <td>{{stars}}</td>        
         <td> {{donor.firstName}} {{donor.lastName}} </td>
         <td> {{category.title}} </td>
-        <td> <img width="500" src={{category.img}}> </td> 
+        <td> <img width="300" src={{category.img}}> </td> 
       </tr>
     {{/each}}
   </tbody>
