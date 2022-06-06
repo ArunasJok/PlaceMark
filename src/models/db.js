@@ -39,6 +39,7 @@ export const db = {
         this.userStore = userMemStore;
         this.categoryStore = categoryMemStore;
         this.placenameStore = placenameMemStore;
+        this.reviewStore = reviewMongoStore;
     }
   },
 };

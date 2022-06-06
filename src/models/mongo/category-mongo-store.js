@@ -18,17 +18,17 @@ export const categoryMongoStore = {
     return null;
   },
 
+  async addCategory(category) {
+    const newCategory = new Category(category);
+    const categoryObj = await newCategory.save();
+    return this.getCategoryById(categoryObj._id);
+  },
+
   async findByTitle(title) {
     const category = await Category.findOne({
       title,      
     });
     return category;
-  },
-
-  async addCategory(category) {
-    const newCategory = new Category(category);
-    const categoryObj = await newCategory.save();
-    return this.getCategoryById(categoryObj._id);
   },
 
   async getUserCategories(id) {

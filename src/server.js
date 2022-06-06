@@ -58,7 +58,6 @@ async function init() {
   ]);
   await server.register(jwt);
   server.validator(Joi);
-  
   server.auth.strategy("session", "cookie", {
     cookie: {
       name: process.env.COOKIE_NAME,
@@ -68,13 +67,11 @@ async function init() {
     redirectTo: "/",
     validateFunc: accountsController.validate,
   });
-
   server.auth.strategy("jwt", "jwt", {
     key: process.env.cookie_password,
     validate: validate,
     verifyOptions: { algorithms: ["HS256"] }
   });
-
   server.auth.default("session");
 
   server.views({

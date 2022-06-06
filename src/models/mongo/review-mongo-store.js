@@ -1,4 +1,6 @@
 import { Review } from "./review.js";
+import { Category } from "./category.js";
+
 
 export const reviewMongoStore = {
   async getAllReviews() {
